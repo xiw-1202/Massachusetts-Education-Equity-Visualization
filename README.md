@@ -69,9 +69,6 @@ massachusetts-education-equity/
 │   ├── SCHOOLDISTRICTS_POLY.json        # GeoJSON for Massachusetts districts
 │   ├── Cleaned_Enrollment_Data.csv      # Enrollment data 2019-2024
 │   ├── massachusetts_education_equity.csv  # Combined DESE datasets
-│   └── [other data files]
-├── scripts/                # Helper scripts for data processing
-│   └── dese-data-processing.py  # Python script to process DESE data
 └── README.md               # Project documentation
 ```
 
