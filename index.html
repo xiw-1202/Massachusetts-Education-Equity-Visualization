@@ -24,146 +24,196 @@
     <div class="container">
       <h1>The Unseen Equation: How Massachusetts' Shifting Student Body Exposes Education's Broken Promises</h1>
       <p class="subtitle">Analyzing the intersection of demographics, resources, and opportunity in Massachusetts'
-        public
-        schools</p>
+        public schools</p>
     </div>
   </header>
 
   <main class="container">
     <article class="article">
       <p>In Massachusetts' public schools, the numbers tell a story of change—and contradiction. Over the past five
-        years,
-        classrooms have grown more diverse, with Latino students now making up nearly 20% of the student body and
+        years, classrooms have transformed into a richly diverse mosaic, with Latino students now making up nearly 20%
+        of the student body and
         multiracial identities on the rise. Yet, beneath these shifts lies a troubling reality: the systems meant to
-        educate these students remain rooted in inequities. While diversity increases, resources and opportunities are
-        still distributed unevenly, leaving many students of color behind.</p>
+        educate these students remain rooted in inequities. While diversity increases, resources and opportunities
+        continue to follow historical patterns of privilege, leaving many students of color navigating an uneven
+        landscape.</p>
 
-      <h2>Demographic Shifts: A Tapestry Unraveling</h2>
-      <p>Over five years, Massachusetts' schools have transformed into a demographic kaleidoscope:</p>
-      <ul>
-        <li>Latino students, now nearly 1 in 5 learners, form the fastest-growing group—a quiet revolution in a state
-          once dominated by White enrollment.</li>
-        <li>White student populations have receded like the tide (65.77% to 62.45%), mirroring a region where rising
-          housing costs displace working-class families.</li>
-        <li>Multiracial identities bloom (3.85% to 4.43%), a generation rejecting boxes, yet still graded by systems
-          built for binaries.</li>
-      </ul>
+      <h2>Demographic Shifts: A Changing Landscape</h2>
+      <!-- Massachusetts Map Visualization Section -->
+      <section id="visualizations" class="visualization">
+        <h2>Massachusetts K-12 Demographics</h2>
 
-      <p>But diversity alone isn't equity. Like mismatched puzzle pieces, these shifts clash with structures built for a
-        different era: Consider Jeremiah E. Burke High School in Dorchester, where Black and Latino students comprise
-        82% of the enrollment. A recent district report showed that 34% of teachers at Burke lack certification in the
-        subjects they teach. Meanwhile, just a few miles across the city, Boston Latin School—an exam school that skews
-        more White and Asian—offers nearly 30 Advanced Placement courses and benefits from robust alumni funding. Such
-        disparities echo what many families already suspect: diversity within the state, absent the resources to
-        support it, is little more than an empty gesture.</p>
-
-      <div class="highlight">
-        <p>"To call this a 'diversity success story' ignores the calculus of injustice: how a Latina student in East
-          Boston is half as likely to reach calculus as her White counterpart in Beacon Hill."</p>
-      </div>
-
-      <h2>The Ghosts in the Data: Where Students Disappear</h2>
-      <p>COVID-19 left scars the dataset can't hide. Enrollment dips in 2021-22 whisper of families fractured by
-        evictions, students lost to childcare deserts, or teens funneled into gig work. Yet the steepest declines haunt
-        higher grades:</p>
-      <ul>
-        <li>9th to 12th grade retention rates for Black students lag 11% behind their White peers—a chasm where college
-          dreams fall through.</li>
-        <li>Special education classrooms, disproportionately filled with Latino and African American boys, echo with the
-          quiet bias of referrals: a 2019 state audit found schools in low-income areas are 3x more likely to label
-          behavioral struggles as "disabilities."</li>
-      </ul>
-
-      <h2>Resource Roulette: The Lottery No Parent Wants</h2>
-      <p>In Massachusetts, your ZIP code is your curriculum. At the Burke High School (82% Black/Latino), 34% of
-        teachers are
-        uncertified in their subjects. Ten miles away, Newton South High (71% White/Asian) offers 28 AP courses—triple
-        the Burke's tally. The data screams what communities already know: diversity without investment is theater.</p>
-
-      <h2>Conclusion: Rewriting the Algorithm</h2>
-      <p>Massachusetts' classrooms are alive with change, but the system's bones creak under the weight of old
-        prejudices. To
-        call this a "diversity success story" ignores the calculus of injustice: how a Latina student in East Boston is
-        half as likely to reach calculus as her White counterpart in Beacon Hill.</p>
-
-      <p>The numbers are more than trends—they're tombstones for potential. Yet buried in the data lies a blueprint:
-        targeted funding for ESL programs, mentorship pipelines for students of color, and audits of disciplinary
-        practices. Massachusetts' schools don't need more diversity; they need a revolution.</p>
-
-      <div class="highlight">
-        <p>"Massachusetts' schools don't need more diversity; they need a revolution."</p>
-      </div>
-
-      <h2>Reflection</h2>
-      <p>Our goal in crafting this article was to bridge the gap between raw data and human stories, transforming
-        numbers into narratives that demand action. Inspired by the works of Nikole Hannah-Jones, whose investigative
-        journalism on school segregation exposes systemic inequities, we aimed to weave data with lived experiences.
-        Similarly, Ta-Nehisi Coates' ability to blend historical context with personal reflection influenced our
-        approach, pushing us to ask not just what the data shows, but why it matters. By grounding statistics in the
-        realities of students and families, we sought to create a piece that resonates emotionally while remaining
-        rooted in evidence—a call to see education not as a system, but as a story of lives in balance.</p>
-    </article>
-
-    <!-- Massachusetts Map Visualization Section -->
-    <section id="visualizations" class="visualization">
-      <h2>Massachusetts K-12 Demographics</h2>
-
-      <div class="controls-top">
-        <div class="dropdown-column">
-          <label class="control-label">District:
-            <select id="districtSelect">
-              <option value="all">All</option>
-            </select>
-          </label>
-          <label class="control-label">Demographic:
-            <select id="demographicSelect"></select>
-          </label>
+        <div class="controls-top">
+          <div class="dropdown-column">
+            <label class="control-label">District:
+              <select id="districtSelect">
+                <option value="all">All</option>
+              </select>
+            </label>
+            <label class="control-label">Demographic:
+              <select id="demographicSelect"></select>
+            </label>
+          </div>
         </div>
-      </div>
 
-      <div class="layout">
-        <div class="year-slider-container">
-          <div class="year-title">Year</div>
-          <div class="slider-wrapper">
-            <input type="range" id="yearRange" min="2019" max="2024" step="1" value="2019" class="vertical-slider" />
-            <div class="year-ticks">
-              <div>2023–2024</div>
-              <div>2022–2023</div>
-              <div>2021–2022</div>
-              <div>2020–2021</div>
-              <div>2019–2020</div>
-              <div>2018–2019</div>
+        <div class="layout">
+          <div class="year-slider-container">
+            <div class="year-title">Year</div>
+            <div class="slider-wrapper">
+              <input type="range" id="yearRange" min="2019" max="2024" step="1" value="2019" class="vertical-slider" />
+              <div class="year-ticks">
+                <div>2023–2024</div>
+                <div>2022–2023</div>
+                <div>2021–2022</div>
+                <div>2020–2021</div>
+                <div>2019–2020</div>
+                <div>2018–2019</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-section">
+            <svg id="ma-map" width="1000" height="700"></svg>
+            <div id="legend"></div>
+            <div id="legend-labels">
+              <span>Less</span>
+              <span>More</span>
             </div>
           </div>
         </div>
 
-        <div class="map-section">
-          <svg id="ma-map" width="1000" height="700"></svg>
-          <div id="legend"></div>
-          <div id="legend-labels">
-            <span>Less</span>
-            <span>More</span>
-          </div>
+        <div id="chart-section">
+          <h3>Demographic Trend (2019–2024)</h3>
+          <div id="line-chart"></div>
         </div>
-        </div>
+      </section>
+      <p>Over five years, Massachusetts' schools have undergone remarkable transformation:</p>
+      <ul>
+        <li>Latino students, now nearly 1 in 5 learners, form the fastest-growing group—a significant evolution in a
+          state
+          once dominated by White enrollment.</li>
+        <li>White student populations have gradually decreased (65.77% to 62.45%), coinciding with a region where rising
+          housing costs reshape neighborhood demographics.</li>
+        <li>Multiracial identities have increased steadily (3.85% to 4.43%), reflecting a generation increasingly
+          comfortable
+          with complex identity expression.</li>
+      </ul>
 
-      <div id="chart-section">
-        <h3>Demographic Trend (2019–2024)</h3>
-        <div id="line-chart"></div>
+      <p>But diversity alone doesn't create equity. These demographic shifts exist within structures designed for a
+        different
+        era—creating friction between who fills the classrooms and how those classrooms are resourced.</p>
+
+      <div class="highlight">
+        <p>"These demographic shifts exist within structures designed for a different era—creating friction between who
+          fills the classrooms and how those classrooms are resourced."</p>
       </div>
-    </section>
+
+      <h2>Resource Disparities: Data Revealing Two Massachusetts</h2>
+      <p>Consider Jeremiah E. Burke High School in Dorchester, where Black and Latino students comprise 82% of the
+        enrollment. District data shows that 34% of teachers at Burke lack certification in the subjects they teach.
+        Meanwhile, just a few miles across the city, Boston Latin School—an exam school with higher percentages of White
+        and Asian students—offers nearly 30 Advanced Placement courses and benefits from robust alumni funding.</p>
+
+      <p>Such disparities illuminate what many families already experience: diversity within the state, without
+        equitable resource allocation, cannot deliver equal opportunity.</p>
+
+      <h2>The Patterns in the Data: Where Students Disappear</h2>
+      <p>COVID-19 created disruptions that appear in the enrollment figures. The data shows notable dips in 2021-22,
+        particularly affecting certain communities:</p>
+      <ul>
+        <li>9th to 12th grade retention rates for Black students lag 11% behind their White peers—a significant gap in
+          pathways to higher education.</li>
+        <li>Special education classrooms show disproportionate representation of Latino and African American boys.</li>
+        <li>A 2019 state assessment found schools in lower-income areas are three times more likely to classify
+          behavioral challenges as disabilities.</li>
+      </ul>
+
+      <h2>Geographic Determinism: Education by Zip Code</h2>
+      <p>In Massachusetts, a student's ZIP code significantly influences their educational trajectory and opportunities.
+        The Massachusetts Public Schools has developed an "Opportunity Index" that confirms what many families already
+        know - neighborhood determines educational resources. The Opportunity Index identifies schools with higher
+        concentrations of students needing additional resources to overcome opportunity gaps, examining both
+        neighborhood-based factors and student-specific measures.</p>
+
+      <div id="opportunity-viz-container" class="visualization">
+        <!-- Visualization will be inserted here by JavaScript -->
+      </div>
+
+      <p>The contrast is stark: at Jeremiah E. Burke High School in Dorchester, where Black and Latino students comprise
+        82% of enrollment, district data shows that 34% of teachers lack certification in their subjects. Meanwhile,
+        exam schools like Boston Latin School—with significantly higher percentages of white and Asian students—offer
+        approximately 30 Advanced Placement courses and receive substantial alumni funding.</p>
+
+      <p>This educational inequity parallels broader neighborhood disparities. The median household income in parts of
+        Roxbury is $42,211, compared to $141,250 in certain Back Bay census tracts. Additionally, 91% of Back Bay adult
+        residents hold college degrees, versus just 44% in Roxbury. These socioeconomic differences directly impact
+        school resources, course offerings, teacher qualifications, and ultimately student outcomes.</p>
+
+      <p>The Massachusetts Public Schools system has attempted to address these disparities through various initiatives,
+        including a controversial ZIP code-based admissions policy for exam schools introduced in 2021. Under this
+        policy, neighborhoods with predominantly Black and Hispanic populations were projected to gain more seats at
+        prestigious exam schools, while areas with more white and Asian students would lose seats. Such policies
+        represent attempts to counteract the effects of neighborhood segregation on educational opportunity, though they
+        remain contentious.</p>
+
+      <p>These geographic inequities create measurable differences in academic outcomes, including college preparation
+        and career readiness, demonstrating how a Massachusetts student's address often predetermines their educational
+        possibilities.</p>
+
+      <h2>Conclusion: Beyond Diversity Toward Equity</h2>
+      <p>Massachusetts' classrooms reflect remarkable demographic evolution, but the system's structures struggle to
+        adapt to these changes. To describe this merely as a "diversity success story" overlooks the persistent
+        inequities: how a student in East Boston faces significantly different educational opportunities than a peer in
+        Beacon Hill.</p>
+
+      <p>The numbers reveal both challenges and possibilities. Targeted investment in multilingual education programs,
+        mentorship initiatives for students of color, and systematic review of resource allocation could transform these
+        statistics into action. Massachusetts' schools don't just need demographic diversity—they need structural
+        transformation that ensures every student, regardless of zip code or racial background, receives an education
+        that fulfills public education's fundamental promise.</p>
+
+      <div class="highlight">
+        <p>"Massachusetts' schools don't just need demographic diversity—they need structural transformation that
+          ensures every student, regardless of zip code or racial background, receives an education that fulfills public
+          education's fundamental promise."</p>
+      </div>
+    </article>
+
+
 
     <section id="about" class="about-section">
       <h2>About This Project</h2>
       <p>This project analyzes enrollment data from Massachusetts Public Schools from 2019-2024, exploring the
-        relationships
-        between demographic changes, resource allocation, and student outcomes. The visualizations and analysis aim to
+        relationships between demographic changes, resource allocation, and student outcomes. The visualizations and
+        analysis aim to
         highlight systemic inequities within the educational system and advocate for more equitable distribution of
         resources across the state.</p>
       <p>Data sources include official enrollment statistics from the Massachusetts Department of Elementary and
         Secondary Education, resource allocation reports from Massachusetts Public Schools, and demographic data from
-        the U.S.
-        Census Bureau.</p>
+        the U.S. Census Bureau.</p>
+
+      <div class="data-citations">
+        <h3>Data Citations</h3>
+        <ul>
+          <li>Massachusetts Department of Elementary and Secondary Education. (2024). <em>Advanced Placement
+              Participation Report</em>. Retrieved from <a href="https://profiles.doe.mass.edu/statereport/ap_part.aspx"
+              target="_blank">https://profiles.doe.mass.edu/statereport/ap_part.aspx</a></li>
+          <li>Massachusetts Department of Elementary and Secondary Education. (2024). <em>Teacher Salaries Report</em>.
+            Retrieved from <a href="https://profiles.doe.mass.edu/statereport/teachersalaries.aspx"
+              target="_blank">https://profiles.doe.mass.edu/statereport/teachersalaries.aspx</a></li>
+          <li>Massachusetts Department of Elementary and Secondary Education. (2024). <em>MCAS Achievement Results</em>.
+            Retrieved from <a href="https://profiles.doe.mass.edu/statereport/mcas.aspx"
+              target="_blank">https://profiles.doe.mass.edu/statereport/mcas.aspx</a></li>
+          <li>Massachusetts Department of Elementary and Secondary Education. (2024). <em>Enrollment by Race/Gender
+              Report</em>. Retrieved from <a href="https://profiles.doe.mass.edu/statereport/"
+              target="_blank">https://profiles.doe.mass.edu/statereport/</a></li>
+          <li>Massachusetts Department of Elementary and Secondary Education. (2024). <em>Graduates Attending Higher
+              Education Report</em>. Retrieved from <a href="https://profiles.doe.mass.edu/statereport/gradsattendingcollege.aspx"
+              target="_blank">https://profiles.doe.mass.edu/statereport/gradsattendingcollege.aspx</a></li>
+          <li>U.S. Census Bureau. (2023). <em>American Community Survey 5-Year Estimates</em>. Retrieved from <a
+              href="https://data.census.gov/" target="_blank">https://data.census.gov/</a></li>
+        </ul>
+      </div>
 
       <div class="data-insights">
         <h3>Key Data Insights</h3>
@@ -192,34 +242,6 @@
       </div>
     </section>
   </main>
-
-  <footer>
-    <div class="container footer-content">
-      <div class="footer-section">
-        <h3>About Us</h3>
-        <p>We are committed to data-driven exploration of educational equity issues in Massachusetts and beyond.</p>
-      </div>
-
-      <div class="footer-section">
-        <h3>Data Sources</h3>
-        <ul>
-          <li>Massachusetts Department of Education</li>
-          <li>Massachusetts Public Schools</li>
-          <li>U.S. Census Bureau</li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <p>Email: info@masseducationequity.org</p>
-        <p>Twitter: @MassEduEquity</p>
-      </div>
-    </div>
-
-    <div class="copyright container">
-      <p>&copy; 2025 Massachusetts Education Equity Project. All rights reserved.</p>
-    </div>
-  </footer>
 
   <!-- Load D3.js -->
   <script src="https://d3js.org/d3.v7.min.js"></script>

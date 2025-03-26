@@ -285,6 +285,36 @@ main {
   height: 400px;
 }
 
+/* Opportunity visualization styles */
+#opportunity-viz-container {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+#opportunity-viz-container h3 {
+  color: #1a237e;
+  margin-bottom: 10px;
+}
+
+#opportunity-viz-container p {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+#opportunity-viz-container svg {
+  margin: 0 auto;
+  display: block;
+}
+
+#opportunity-tooltip {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
 /* About section */
 .about-section {
   background-color: white;
@@ -307,6 +337,38 @@ main {
   margin-top: 30px;
   padding-top: 20px;
   border-top: 1px solid #e0e0e0;
+}
+
+.data-citations {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.data-citations h3 {
+  margin-bottom: 20px;
+  color: #1a237e;
+}
+
+.data-citations ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.data-citations li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.data-citations a {
+  color: #3949ab;
+  text-decoration: none;
+}
+
+.data-citations a:hover {
+  text-decoration: underline;
 }
 
 .data-insights h3 {
