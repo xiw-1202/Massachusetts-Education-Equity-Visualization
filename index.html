@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Unseen Equation: Boston's Education Reality</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>The Unseen Equation: Massachusetts Education Reality</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
   <nav>
     <div class="container nav-container">
-      <div class="logo">Boston Education Equity</div>
+      <div class="logo">Massachusetts Education Equity</div>
       <ul class="nav-links">
         <li><a href="#" class="active">Article</a></li>
         <li><a href="#visualizations">Visualizations</a></li>
@@ -22,26 +22,28 @@
 
   <header>
     <div class="container">
-      <h1>The Unseen Equation: How Boston's Shifting Student Body Exposes Education's Broken Promises</h1>
-      <p class="subtitle">Analyzing the intersection of demographics, resources, and opportunity in Boston's public
+      <h1>The Unseen Equation: How Massachusetts' Shifting Student Body Exposes Education's Broken Promises</h1>
+      <p class="subtitle">Analyzing the intersection of demographics, resources, and opportunity in Massachusetts'
+        public
         schools</p>
     </div>
   </header>
 
   <main class="container">
     <article class="article">
-      <p>In Boston's public schools, the numbers tell a story of change—and contradiction. Over the past five years,
+      <p>In Massachusetts' public schools, the numbers tell a story of change—and contradiction. Over the past five
+        years,
         classrooms have grown more diverse, with Latino students now making up nearly 20% of the student body and
         multiracial identities on the rise. Yet, beneath these shifts lies a troubling reality: the systems meant to
         educate these students remain rooted in inequities. While diversity increases, resources and opportunities are
         still distributed unevenly, leaving many students of color behind.</p>
 
       <h2>Demographic Shifts: A Tapestry Unraveling</h2>
-      <p>Over five years, Boston's schools have transformed into a demographic kaleidoscope:</p>
+      <p>Over five years, Massachusetts' schools have transformed into a demographic kaleidoscope:</p>
       <ul>
-        <li>Latino students, now nearly 1 in 5 learners, form the fastest-growing group—a quiet revolution in a district
+        <li>Latino students, now nearly 1 in 5 learners, form the fastest-growing group—a quiet revolution in a state
           once dominated by White enrollment.</li>
-        <li>White student populations have receded like the tide (65.77% to 62.45%), mirroring a city where rising
+        <li>White student populations have receded like the tide (65.77% to 62.45%), mirroring a region where rising
           housing costs displace working-class families.</li>
         <li>Multiracial identities bloom (3.85% to 4.43%), a generation rejecting boxes, yet still graded by systems
           built for binaries.</li>
@@ -52,7 +54,7 @@
         82% of the enrollment. A recent district report showed that 34% of teachers at Burke lack certification in the
         subjects they teach. Meanwhile, just a few miles across the city, Boston Latin School—an exam school that skews
         more White and Asian—offers nearly 30 Advanced Placement courses and benefits from robust alumni funding. Such
-        disparities echo what many families already suspect: diversity within the district, absent the resources to
+        disparities echo what many families already suspect: diversity within the state, absent the resources to
         support it, is little more than an empty gesture.</p>
 
       <div class="highlight">
@@ -73,21 +75,23 @@
       </ul>
 
       <h2>Resource Roulette: The Lottery No Parent Wants</h2>
-      <p>In Boston, your ZIP code is your curriculum. At the Burke High School (82% Black/Latino), 34% of teachers are
+      <p>In Massachusetts, your ZIP code is your curriculum. At the Burke High School (82% Black/Latino), 34% of
+        teachers are
         uncertified in their subjects. Ten miles away, Newton South High (71% White/Asian) offers 28 AP courses—triple
         the Burke's tally. The data screams what communities already know: diversity without investment is theater.</p>
 
       <h2>Conclusion: Rewriting the Algorithm</h2>
-      <p>Boston's classrooms are alive with change, but the system's bones creak under the weight of old prejudices. To
+      <p>Massachusetts' classrooms are alive with change, but the system's bones creak under the weight of old
+        prejudices. To
         call this a "diversity success story" ignores the calculus of injustice: how a Latina student in East Boston is
         half as likely to reach calculus as her White counterpart in Beacon Hill.</p>
 
       <p>The numbers are more than trends—they're tombstones for potential. Yet buried in the data lies a blueprint:
         targeted funding for ESL programs, mentorship pipelines for students of color, and audits of disciplinary
-        practices. Boston's schools don't need more diversity; they need a revolution.</p>
+        practices. Massachusetts' schools don't need more diversity; they need a revolution.</p>
 
       <div class="highlight">
-        <p>"Boston's schools don't need more diversity; they need a revolution."</p>
+        <p>"Massachusetts' schools don't need more diversity; they need a revolution."</p>
       </div>
 
       <h2>Reflection</h2>
@@ -100,106 +104,65 @@
         rooted in evidence—a call to see education not as a system, but as a story of lives in balance.</p>
     </article>
 
+    <!-- Massachusetts Map Visualization Section -->
     <section id="visualizations" class="visualization">
-      <h2>Data Visualizations</h2>
+      <h2>Massachusetts K-12 Demographics</h2>
 
-      <div class="controls">
-        <div class="year-selector">
-          <label for="year-selector">Select Year: </label>
-          <select id="year-selector" class="selector">
-            <option value="2023-24">2023-24</option>
-            <option value="2022-23">2022-23</option>
-            <option value="2021-22">2021-22</option>
-            <option value="2020-21">2020-21</option>
-            <option value="2019-20">2019-20</option>
-          </select>
+      <div class="controls-top">
+        <div class="dropdown-column">
+          <label class="control-label">District:
+            <select id="districtSelect">
+              <option value="all">All</option>
+            </select>
+          </label>
+          <label class="control-label">Demographic:
+            <select id="demographicSelect"></select>
+          </label>
         </div>
       </div>
 
-      <div class="tabs">
-        <button class="tab active" data-tab="demographics">Demographics</button>
-        <button class="tab" data-tab="resources">Resources</button>
-        <button class="tab" data-tab="retention">Student Retention</button>
-      </div>
-
-      <div class="tab-content">
-        <!-- Demographics Tab Content (Default Active) -->
-        <div id="demographics-content" class="tab-panel active">
-          <div class="chart-container">
-            <div class="demo-chart" id="demographics-chart"></div>
-          </div>
-
-          <div class="key-findings">
-            <h3>Key Demographics Findings</h3>
-            <ul>
-              <li>Latino student population has increased from 34.7% to 37.1% over five years</li>
-              <li>Black student population has decreased from 51.3% to 48.8%</li>
-              <li>Multiracial identities have increased from 2.5% to 3.1%</li>
-              <li>Overall enrollment has decreased by 5,029 students since 2019</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Resources Tab Content -->
-        <div id="resources-content" class="tab-panel">
-          <div class="map-container">
-            <div class="map" id="resources-map"></div>
-            <div class="map-info">
-              <h3>Resource Distribution by Neighborhood</h3>
-              <p>The data reveals significant resource disparities across Boston neighborhoods:</p>
-              <ul>
-                <li>Predominantly white neighborhoods (Beacon Hill) show 95% resource allocation</li>
-                <li>Predominantly Black/Latino neighborhoods (Roxbury, Dorchester) show 45-55% resource allocation</li>
-                <li>Resource distribution correlates strongly with demographic composition</li>
-                <li>Schools in high-resource areas offer nearly 30 AP courses vs 10 in low-resource areas</li>
-              </ul>
-              <div id="zip-details" class="zip-details">
-                <h4>Select a district on the map to see details</h4>
-              </div>
-
-              <div class="correlation-container">
-                <h4>Resource-Demographics Correlation</h4>
-                <div class="correlation-chart">
-                  <div class="correlation-label">Strong Correlation</div>
-                  <div class="correlation-bar">
-                    <div class="correlation-fill" style="width: 85%;"></div>
-                  </div>
-                  <div class="correlation-value">r = 0.85</div>
-                </div>
-                <p class="correlation-note">Resource allocation is strongly correlated with neighborhood racial
-                  demographics (r = 0.85)</p>
-              </div>
+      <div class="layout">
+        <div class="year-slider-container">
+          <div class="year-title">Year</div>
+          <div class="slider-wrapper">
+            <input type="range" id="yearRange" min="2019" max="2024" step="1" value="2019" class="vertical-slider" />
+            <div class="year-ticks">
+              <div>2023–2024</div>
+              <div>2022–2023</div>
+              <div>2021–2022</div>
+              <div>2020–2021</div>
+              <div>2019–2020</div>
+              <div>2018–2019</div>
             </div>
           </div>
         </div>
 
-        <!-- Retention Tab Content -->
-        <div id="retention-content" class="tab-panel">
-          <div class="chart-container">
-            <div class="demo-chart" id="retention-chart"></div>
-          </div>
-
-          <div class="key-findings">
-            <h3>Key Retention Findings</h3>
-            <ul>
-              <li>9th to 12th grade retention rates for Black students lag 11% behind their White peers</li>
-              <li>High school completion rates vary significantly by neighborhood</li>
-              <li>Enrollment dipped most significantly during 2021-2022 school year</li>
-              <li>Special education referrals are 3x higher in predominantly minority schools</li>
-            </ul>
+        <div class="map-section">
+          <svg id="ma-map" width="1000" height="700"></svg>
+          <div id="legend"></div>
+          <div id="legend-labels">
+            <span>Less</span>
+            <span>More</span>
           </div>
         </div>
+        </div>
+
+      <div id="chart-section">
+        <h3>Demographic Trend (2019–2024)</h3>
+        <div id="line-chart"></div>
       </div>
     </section>
 
     <section id="about" class="about-section">
       <h2>About This Project</h2>
-      <p>This project analyzes enrollment data from Boston Public Schools from 2019-2024, exploring the relationships
+      <p>This project analyzes enrollment data from Massachusetts Public Schools from 2019-2024, exploring the
+        relationships
         between demographic changes, resource allocation, and student outcomes. The visualizations and analysis aim to
         highlight systemic inequities within the educational system and advocate for more equitable distribution of
-        resources across neighborhoods.</p>
+        resources across the state.</p>
       <p>Data sources include official enrollment statistics from the Massachusetts Department of Elementary and
-        Secondary Education, resource allocation reports from Boston Public Schools, and demographic data from the U.S.
+        Secondary Education, resource allocation reports from Massachusetts Public Schools, and demographic data from
+        the U.S.
         Census Bureau.</p>
 
       <div class="data-insights">
@@ -213,7 +176,7 @@
           <div class="insight-card">
             <div class="insight-number">+2.4%</div>
             <div class="insight-label">Latino Population Growth</div>
-            <div class="insight-detail">Fastest growing demographic group in Boston schools</div>
+            <div class="insight-detail">Fastest growing demographic group in Massachusetts schools</div>
           </div>
           <div class="insight-card">
             <div class="insight-number">0.85</div>
@@ -234,31 +197,34 @@
     <div class="container footer-content">
       <div class="footer-section">
         <h3>About Us</h3>
-        <p>We are committed to data-driven exploration of educational equity issues in Boston and beyond.</p>
+        <p>We are committed to data-driven exploration of educational equity issues in Massachusetts and beyond.</p>
       </div>
 
       <div class="footer-section">
         <h3>Data Sources</h3>
         <ul>
           <li>Massachusetts Department of Education</li>
-          <li>Boston Public Schools</li>
+          <li>Massachusetts Public Schools</li>
           <li>U.S. Census Bureau</li>
         </ul>
       </div>
 
       <div class="footer-section">
         <h3>Contact</h3>
-        <p>Email: info@bostoneducationequity.org</p>
-        <p>Twitter: @BostonEduEquity</p>
+        <p>Email: info@masseducationequity.org</p>
+        <p>Twitter: @MassEduEquity</p>
       </div>
     </div>
 
     <div class="copyright container">
-      <p>&copy; 2025 Boston Education Equity Project. All rights reserved.</p>
+      <p>&copy; 2025 Massachusetts Education Equity Project. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Load D3.js -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- Load JavaScript files -->
+  <script src="js/mass-viz.js"></script>
 </body>
 
 </html>
