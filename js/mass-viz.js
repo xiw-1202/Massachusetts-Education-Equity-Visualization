@@ -546,7 +546,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Set up event listeners
     d3.select("#yearRange").on("input", updateMap);
-    d3.select("#demographicSelect").on("change", updateMap);
+    d3.select("#demographicSelect").on("change", function() {
+      updateMap();
+      d3.select("#districtSelect").dispatch("change");
+    });
     d3.select("#districtSelect").on("change", function() {
       const selectedDistrict = d3.select(this).property("value");
       updateMap();
