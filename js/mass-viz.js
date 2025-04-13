@@ -366,35 +366,46 @@ document.addEventListener('DOMContentLoaded', function() {
     const margin = { top: 30, right: 30, bottom: 50, left: 60 };
     const width = 800 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
-
+  
     const svg = container.append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
-
+  
     const years = Object.keys(valuesOverYears).map(y => +y).sort();
     const data = years.map(year => ({ year, value: valuesOverYears[year] }));
-
+  
     const x = d3.scaleLinear().domain(d3.extent(years)).range([0, width]);
     const y = d3.scaleLinear().domain([0, d3.max(data, d => d.value || 0)]).nice().range([height, 0]);
-
-    svg.append("g").call(d3.axisLeft(y));
+  
     svg.append("g")
-    .attr("transform", `translate(0,${height})`)
-    .call(
-      d3.axisBottom(x)
-        .ticks(years.length)
-        .tickFormat(d => `${d}–${d + 1}`)
-    );
-
+      .call(d3.axisLeft(y));
+    
+    svg.append("g")
+      .attr("transform", `translate(0,${height})`)
+      .call(
+        d3.axisBottom(x)
+          .ticks(years.length)
+          .tickFormat(d => `${d}–${d + 1}`)
+      );
+  
+    // Add a y-axis label that explains the metric:
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("x", -height / 2)
+      .attr("y", -45)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text(label === "All Students" ? "Total Enrollment" : `${label} Count`);
+  
     svg.append("path")
       .datum(data.filter(d => d.value != null))
       .attr("fill", "none")
       .attr("stroke", "#f7943e")
       .attr("stroke-width", 2.5)
       .attr("d", d3.line().x(d => x(d.year)).y(d => y(d.value)));
-
+  
     svg.selectAll("circle")
       .data(data.filter(d => d.value != null))
       .join("circle")
@@ -402,13 +413,17 @@ document.addEventListener('DOMContentLoaded', function() {
       .attr("cy", d => y(d.value))
       .attr("r", 4)
       .attr("fill", "#f7943e");
-
+  
+    // Update the chart title to clearly convey what is being shown.
+    const chartTitle = label === "All Students"
+      ? "Enrollment Trend (2019–2024)"
+      : "Demographic Trend (2019–2024)";
     svg.append("text")
       .attr("x", width / 2)
       .attr("y", -10)
       .attr("text-anchor", "middle")
       .style("font-size", "16px")
-      .text(`${label} in ${districtName}`);
+      .text(`${chartTitle} for ${districtName}`);
   }
 
   // Load the actual data files
@@ -454,19 +469,37 @@ document.addEventListener('DOMContentLoaded', function() {
       districtSelect.append("option").attr("value", d).text(d);
     });
 
-    // Function to render the color legend
-    function renderLegend(scale, min, max) {
-      const canvas = d3.select("#legend").html("").append("canvas")
-        .attr("width", 400)
-        .attr("height", 40)
-        .style("border", "1px solid #000");
+  // Updated renderLegend to show low/high values
+  function renderLegend(scale, min, max) {
+    // Clear the legend container and create a flex container for the labels and canvas
+    const legendDiv = d3.select("#legend").html("");
+    const legendContainer = legendDiv.append("div")
+      .style("display", "flex")
+      .style("align-items", "center");
 
-      const ctx = canvas.node().getContext("2d");
-      for (let i = 0; i < 400; i++) {
-        ctx.fillStyle = scale(min + (i / 399) * (max - min));
-        ctx.fillRect(i, 0, 1, 40);
-      }
+    // Append a label for the low end (with the actual minimum value)
+    legendContainer.append("span")
+      .text(`Low (${Math.round(min)})`)
+      .style("margin-right", "10px");
+
+    // Create a canvas for the color bar
+    const canvas = legendContainer.append("canvas")
+      .attr("width", 400)
+      .attr("height", 20)
+      .style("border", "1px solid #000");
+    const ctx = canvas.node().getContext("2d");
+
+    // Draw the color gradient on the canvas
+    for (let i = 0; i < 400; i++) {
+      ctx.fillStyle = scale(min + (i / 399) * (max - min));
+      ctx.fillRect(i, 0, 1, 20);
     }
+
+    // Append a label for the high end (with the actual maximum value)
+    legendContainer.append("span")
+      .text(`High (${Math.round(max)})`)
+      .style("margin-left", "10px");
+  }
 
     // Function to update the map based on selections
     function updateMap() {
@@ -596,6 +629,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize map
     updateMap();
+    // Add interactive text hover: When text elements with the class "highlight-district" are hovered,
+    // highlight the corresponding district on the map.
+    d3.selectAll(".highlight-district")
+    .on("mouseover", function() {
+      const districtName = d3.select(this).attr("data-district");
+      // Highlight matching path elements on the map svg (assuming the paths are already rendered in #ma-map)
+      d3.select("#ma-map").selectAll("path")
+        .attr("stroke", function(d) {
+          return d.properties.DISTRICT_N === districtName ? "#FF0000" : "#555";
+        })
+        .attr("stroke-width", function(d) {
+          return d.properties.DISTRICT_N === districtName ? 3 : 0.7;
+        });
+    })
+    .on("mouseout", function() {
+      // Reset styling on mouse out
+      d3.select("#ma-map").selectAll("path")
+        .attr("stroke", "#555")
+        .attr("stroke-width", 0.7);
+    });
     
     // Draw initial line chart with Boston data (or first available district if Boston isn't available)
     const initialDistrict = geoData.features.find(f => 
