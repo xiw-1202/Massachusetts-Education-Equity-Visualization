@@ -6,6 +6,10 @@ This project visualizes educational inequity across Massachusetts using official
 
 The primary goal is to demonstrate how a student's ZIP code significantly influences their educational opportunities and outcomes in Massachusetts public schools, highlighting the systemic disparities that exist between districts.
 
+## Deployment
+
+https://xiw-1202.github.io/Massachusetts-Education-Equity-Visualization/
+
 ## Features
 
 - **Interactive Map Visualization**: Explore demographic changes across Massachusetts school districts from 2019-2024
